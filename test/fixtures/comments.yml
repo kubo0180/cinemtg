@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  entry: 
+  title: MyString
+  body: MyString
+  name: MyString
+
+two:
+  entry: 
+  title: MyString
+  body: MyString
+  name: MyString

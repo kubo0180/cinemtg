@@ -1,0 +1,13 @@
+<%= form_for [comment.entry, comment], :id => "comment-form", :remote => true do |f| %>
+  <div class="field">
+    <%= f.label :name, 'comment author' %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :body, 'content' %><br />
+    <%= f.text_area :body %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

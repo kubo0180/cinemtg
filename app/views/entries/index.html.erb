@@ -1,0 +1,30 @@
+<h1>Listing entries</h1>
+<%= link_to 'show blog', "/blog/entries/#{@blogger.id}/" %>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Body</th>
+    <th>Public flag</th>
+    <th>Point</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @entries.each do |entry| %>
+  <tr>
+    <td><%= entry.title %></td>
+    <td><%= entry.body %></td>
+    <td><%= entry.public_flag %></td>
+    <td><%= entry.point %></td>
+    <td><%= link_to 'Show', entry %></td>
+    <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
+    <td><%= link_to 'Destroy', entry, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Entry', new_entry_path %>

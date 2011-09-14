@@ -1,0 +1,13 @@
+<header>
+<h1>blog</h1>
+</header>
+<section>
+<% @entries.each do |entry| %>
+  <article>
+  <h2>title:<%= entry.title %></h2>
+  <p><%= entry.body %><p>
+  <date><%= entry.created_at.strftime("%Y/%m/%d") %></date>
+  <p><%= link_to 'syousai', :controller=>"blog", :action=>"show", :id=>@blogger.id, :entry_id=>entry.id %></p>
+  </article>
+<% end %>
+</section>
