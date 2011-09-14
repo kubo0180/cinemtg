@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110912150924) do
+ActiveRecord::Schema.define(:version => 20110914030644) do
 
   create_table "bloggers", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
@@ -44,13 +44,14 @@ ActiveRecord::Schema.define(:version => 20110912150924) do
   create_table "entries", :force => true do |t|
     t.string   "title"
     t.text     "body"
-    t.boolean  "public_flag"
+    t.integer  "public_flag", :default => 0, :null => false
     t.integer  "point"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "blogger_id",  :default => 0, :null => false
   end
 
+  add_index "entries", ["blogger_id", "public_flag", "created_at"], :name => "index_entries_on_blogger_id_and_public_flag_and_created_at"
   add_index "entries", ["blogger_id", "updated_at"], :name => "index_entries_on_blogger_id_and_updated_at"
 
 end

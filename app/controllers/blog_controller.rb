@@ -1,7 +1,7 @@
 class BlogController < ApplicationController
   def index
     @blogger = Blogger.find(params[:id])
-    @entries = Entry.where("blogger_id=?", @blogger.id).latest
+    @entries = Entry.where("blogger_id=?", @blogger.id).public_entries.latest
   end
 
   def show
