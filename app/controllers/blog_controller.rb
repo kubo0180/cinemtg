@@ -1,11 +1,11 @@
 class BlogController < ApplicationController
   def index
-    @blogger = Blogger.find(params[:id])
-    @entries = Entry.where("blogger_id=?", @blogger.id).public_entries.latest
+    @user = User.find(params[:id])
+    @entries = Entry.where("user_id=?", @user.id).public_entries.latest
   end
 
   def show
-    @blogger = Blogger.find(params[:id])
+    @user = User.find(params[:id])
     @entry = Entry.find(params[:entry_id])
     respond_to do |format|
       format.html

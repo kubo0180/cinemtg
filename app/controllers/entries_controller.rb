@@ -2,9 +2,12 @@ class EntriesController < ApplicationController
   # GET /entries
   # GET /entries.json
   def index
-    @blogger = current_blogger
-    @entries = Entry.where("blogger_id=?", @blogger.id).latest
-
+    @user = current_user
+    if @user.nil?
+      @entries = []
+    else
+      @entries = Entry.where("user_id=?", @user.id).latest
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @entries }
@@ -14,7 +17,7 @@ class EntriesController < ApplicationController
   # GET /entries/1
   # GET /entries/1.json
   def show
-    @blogger = current_blogger
+    @user = current_user
     @entry = Entry.find(params[:id])
 
     respond_to do |format|
@@ -26,7 +29,7 @@ class EntriesController < ApplicationController
   # GET /entries/new
   # GET /entries/new.json
   def new
-    @blogger = current_blogger
+    @user = current_user
     @entry = Entry.new
 
     respond_to do |format|
@@ -43,11 +46,11 @@ class EntriesController < ApplicationController
   # POST /entries
   # POST /entries.json
   def create
-    @blogger = current_blogger
+    @user = current_user
 
     @entry = Entry.new(params[:entry])
 
-    @entry.blogger_id = @blogger.id
+    @entry.user_id = @user.id
     respond_to do |format|
       if @entry.save
         format.html { redirect_to @entry, :notice => 'Entry was successfully created.' }
@@ -62,7 +65,7 @@ class EntriesController < ApplicationController
   # PUT /entries/1
   # PUT /entries/1.json
   def update
-    @blogger = current_blogger
+    @user = current_user
     @entry = Entry.find(params[:id])
 
     respond_to do |format|

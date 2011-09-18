@@ -4,8 +4,8 @@ Simple::Application.routes.draw do
   match "blog/entries/:id/:entry_id/" => "blog#show", :as => :blog_show
   match "blog/entries/:id/" => "blog#index", :as => :blog_index
 
-
-  devise_for :bloggers
+  match '/auth/:provider/callback' => 'sessions#callback'
+  match "/signout" => "sessions#destroy",  :as => :signout
 
   resources :entries, :only=>[:index, :new, :create, :show, :update, :edit, :destroy] do
     resources :comments, :only=>[:new, :create]
@@ -60,7 +60,7 @@ Simple::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to => 'entries#index'
+  root :to => 'entries#index'
 
   # See how all your routes lay out with "rake routes"
 

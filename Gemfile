@@ -10,6 +10,7 @@ gem 'sqlite3'
 gem 'json'
 gem 'rake', '0.8.7'
 gem 'devise'
+gem 'omniauth'
 
 # Gems used only for assets and not required
 # in production environments by default.

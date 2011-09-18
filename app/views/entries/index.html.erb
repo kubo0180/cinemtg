@@ -1,30 +1,30 @@
 <h1>Listing entries</h1>
-<%= link_to 'show blog', "/blog/entries/#{@blogger.id}/" %>
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Content</th>
+      <th>Public/Private</th>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Content</th>
-    <th>Public/Private</th>
-    <th>Date</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+    <% @entries.each do |entry| %>
+      <tr>
+        <td><%= entry.title %></td>
+        <td><%= format_string_length(entry.body, 20) %></td>
+        <td><%= is_public(entry.public_flag) %></td>
+        <td><%= entry.created_at.strftime("%Y/%m/%d") %></td>
+        <td><%= link_to 'Show', entry %></td>
+        <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
+        <td><%= link_to 'Destroy', entry, :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    <% end %>
+  </table>
 
-<% @entries.each do |entry| %>
-  <tr>
-    <td><%= entry.title %></td>
-    <td><%= format_string_length(entry.body, 20) %></td>
-    <td><%= is_public(entry.public_flag) %></td>
-    <td><%= entry.created_at.strftime("%Y/%m/%d") %></td>
-    <td><%= link_to 'Show', entry %></td>
-    <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
-    <td><%= link_to 'Destroy', entry, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+  <br />
 
-<br />
+  <%= link_to 'New Entry', new_entry_path %>
 
-<%= link_to 'New Entry', new_entry_path %>
+
