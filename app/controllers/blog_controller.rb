@@ -2,6 +2,7 @@ class BlogController < ApplicationController
   def index
     @user = User.find(params[:id])
     @entries = Entry.where("user_id=?", @user.id).public_entries.latest
+    @entry = Entry.new
   end
 
   def show

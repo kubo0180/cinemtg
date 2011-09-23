@@ -1,7 +1,17 @@
 <header>
 <h1>blog</h1>
 </header>
-<section>
+<% if current_user %>
+  <%= link_to "Sign Out",  signout_path %>
+
+  <section>
+  <%= render @entry %>
+  </section>
+<% else %>
+  <%= link_to "Sign in with Twitter",  "/auth/twitter" %>
+<% end %>
+
+<section class="entry" id="entry_list">
 <% @entries.each do |entry| %>
   <article>
   <h2>title:<%= entry.title %></h2>
@@ -11,3 +21,8 @@
   </article>
 <% end %>
 </section>
+<nav>
+<%= auth_tag do %>
+  "test"
+<% end %>
+</nav>
