@@ -1,0 +1,40 @@
+<%= form_tag ({:controller => 'amazon',  :action => 'index'}, :remote => true) do %>
+  <%= text_field_tag "keyword",  @keyword %><%= submit_tag "アマゾンで検索" %>
+<% end %>
+<section class="aitem" id="aitem_list">
+<% if @aitems && @aitems.size > 0 %>
+  <p>検索結果</p>
+  <table>
+
+    <% @aitems.each do |aitem| %>
+      <tr>
+        <td>
+
+          <%= form_for @book , :id => "book-form", :remote => true do |f| %>
+            <% if @book.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:</h2>
+
+                <ul>
+                  <% @book.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+            <%= f.hidden_field :title , {:value => aitem.title} %>
+            <%= f.hidden_field :isbn , {:value => aitem.isbn} %>
+            <%= f.hidden_field :asin , {:value => aitem.asin} %>
+            <%= f.hidden_field :page , {:value => aitem.page} %>
+            <%= f.submit %>
+
+          <% end %>
+        </td>
+        <td><%= link_to(image_tag(aitem.image["URL"],  :size => "#{aitem.image["Width"]}x#{aitem.image["Height"]}",  :alt => aitem.title),  aitem.url,  :target => '_blank') %></td>
+        <td><%= aitem.isbn %></td>
+        <td><%= aitem.title %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+</section>

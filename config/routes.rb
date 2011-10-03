@@ -1,12 +1,23 @@
 Simple::Application.routes.draw do
 
+  get "rlog/index"
+
+  get "rlog/show"
+
+  resources :books do
+    resources :entries
+  end
+
   resources :blog, :only=>[:index, :show] do end
   match "blog/entries/:id/:entry_id/" => "blog#show", :as => :blog_show
   match "blog/entries/:id/" => "blog#index", :as => :blog_index
+  match "amazon/" => "amazon#index"
+
+  match "rlog/books/:id/:book_id/" => "rlog#show",  :as => :rlog_show
+  match "rlog/books/:id/" => "rlog#index", :as => :rlog_index
 
   match '/auth/:provider/callback' => 'sessions#callback'
   match "/signout" => "sessions#destroy",  :as => :signout
-
   resources :entries, :only=>[:index, :new, :create, :show, :update, :edit, :destroy] do
     resources :comments, :only=>[:new, :create]
   end

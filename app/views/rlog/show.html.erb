@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+<section class="book_form">
+<article>
+<p><b>title:</b><%= @book.title %></p>
+<p><b>asin:</b><%= @book.asin %></p>
+</article>
+</section>
+<section class="entry_form" id="entry_form_div">
+<%= render @book.entries.build %>
+</section>
+<section  class="entry" id="entry_list">
+<% @book.entries.each do |entry| %>
+  <article>
+  <h2>title:<%= entry.title %></h2>
+  <p><%= entry.body %><p>
+  </article>
+<% end %>
+</section>

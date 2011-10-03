@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  asin: MyString
+  isbn: MyString
+  title: MyString
+
+two:
+  asin: MyString
+  isbn: MyString
+  title: MyString

@@ -1,0 +1,23 @@
+<% if @aitems && @aitems.size > 0 %>
+  <p>検索結果</p>
+  <table>
+
+    <% @aitems.each do |aitem| %>
+      <tr>
+        <td>
+          <%= form_for Book.new , :remote => true do |f| %>
+            <%= f.hidden_field :title , {:value => aitem.title} %>
+            <%= f.hidden_field :isbn , {:value => aitem.isbn} %>
+            <%= f.hidden_field :asin , {:value => aitem.asin} %>
+            <%= f.hidden_field :page , {:value => aitem.page} %>
+            <%= f.submit %>
+          <% end %>
+        </td>
+        <td><%= link_to(image_tag(aitem.image["URL"],  :size => "#{aitem.image["Width"]}x#{aitem.image["Height"]}",  :alt => aitem.title),  aitem.url,  :target => '_blank') %></td>
+        <td><%= aitem.isbn %></td>
+        <td><%= aitem.title %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+

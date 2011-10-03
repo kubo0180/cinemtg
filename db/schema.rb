@@ -10,7 +10,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110918002749) do
+ActiveRecord::Schema.define(:version => 20110928115022) do
+
+  create_table "books", :force => true do |t|
+    t.string   "asin"
+    t.string   "isbn"
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "page"
+  end
 
   create_table "comments", :force => true do |t|
     t.integer  "entry_id"
@@ -31,6 +41,8 @@ ActiveRecord::Schema.define(:version => 20110918002749) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id",     :default => 0, :null => false
+    t.integer  "book_id"
+    t.integer  "book_page"
   end
 
   add_index "entries", ["user_id", "public_flag", "created_at"], :name => "index_entries_on_user_id_and_public_flag_and_created_at"

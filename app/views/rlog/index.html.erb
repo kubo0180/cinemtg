@@ -1,0 +1,28 @@
+<header>
+<h1>blog</h1>
+</header>
+<% if current_user %>
+  <%= link_to "Sign Out",  signout_path %>
+
+  <section>
+  <%= render @book %>
+  </section>
+<% else %>
+  <%= link_to "Sign in with Twitter",  "/auth/twitter" %>
+<% end %>
+
+<section class="book" id="book_list">
+<% @books.each do |book| %>
+  <article>
+  <h2>title:<%= book.title %></h2>
+  <p><%= book.isbn %><p>
+  <date><%= book.created_at.strftime("%Y/%m/%d") %></date>
+  <p><%= link_to 'syousai', :controller=>"rlog", :action=>"show", :id=>@user.id, :book_id=>book.id %></p>
+  </article>
+<% end %>
+</section>
+<nav>
+<%= auth_tag do %>
+  "test"
+<% end %>
+</nav>
