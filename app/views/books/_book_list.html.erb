@@ -2,6 +2,6 @@
 <h2>title:<%= @book.title %></h2>
 <p><%= @book.isbn %><p>
 <date><%= @book.created_at.strftime("%Y/%m/%d") %></date>
-<p><%= link_to 'syousai', :controller=>"blog", :action=>"show", :id=>@user.id, :book_id=>@book.id %></p>
+<p><%= link_to 'syousai', :controller=>"rlog", :action=>"show", :id=>@user.id, :book_id=>@book.id %></p>
 </article>
 

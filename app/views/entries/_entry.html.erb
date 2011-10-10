@@ -1,20 +1,17 @@
 <%= form_for [entry.book, entry], :id => "entry-form", :remote => true do |f| %>
   <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
     <%= f.label :body %><br />
     <%= f.text_area :body %>
   </div>
   <div class="field">
     draft:<%= f.radio_button :public_flag, "0" %>
-    public:<%= f.radio_button :public_flag, "1" %>
+    public:<%= f.radio_button :public_flag, "1", :checked=>'checked'  %>
     future:<%= f.radio_button :public_flag, "2" %>
   </div>
   <div class="field">
-    <%= f.label :point %><br />
-    <%= f.number_field :point %>
+    <%= f.label :page %><br />
+    <%= f.range_field :page,:value=>1, :in =>1...entry.book.page.to_i,  :onchange => "printValue('entry_page', 'rangeValue1')"%>
+    <%= number_field_tag "rangeValue1", 1 %>
   </div>
   <div class="actions">
     <%= f.submit %>

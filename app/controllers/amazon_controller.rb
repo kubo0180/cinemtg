@@ -15,7 +15,7 @@ class AmazonController < ApplicationController
           item.get_unescaped('ItemAttributes/ISBN'),
           item.get_unescaped('ItemAttributes/Title'),
           item.get_unescaped('DetailPageURL'),
-          item.get_unescaped('NumberOfPages'),
+          item.get_unescaped('ItemAttributes/NumberOfPages'),
           item.get_hash('SmallImage')
         )
       end

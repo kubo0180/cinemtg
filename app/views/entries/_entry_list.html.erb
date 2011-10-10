@@ -1,7 +1,7 @@
   <article>
-  <h2>title:<%= @entry.title %></h2>
+  <h2>title:<%= @entry.page %></h2>
   <p><%= @entry.body %><p>
   <date><%= @entry.created_at.strftime("%Y/%m/%d") %></date>
-  <p><%= link_to 'syousai', :controller=>"blog", :action=>"show", :id=>@user.id, :entry_id=>@entry.id %></p>
+  <p><%= link_to 'syousai', :controller=>"rlog", :action=>"show", :id=>@user.id, :entry_id=>@entry.id %></p>
   </article>
 
