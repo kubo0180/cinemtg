@@ -1,8 +1,15 @@
 Simple::Application.routes.draw do
 
+  get "service/item"
+
   get "rlog/index"
 
   get "rlog/show"
+ 
+ match "service/top"
+match "service/corner"
+match "service/item"
+match "service/guide"
 
   resources :books do
     resources :entries

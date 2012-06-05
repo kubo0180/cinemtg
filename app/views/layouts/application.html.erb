@@ -1,19 +1,38 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Simple</title>
+    <title>Simple</title><meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "application" %><meta name="apple-mobile-web-app-capable" content="yes" />
     <%= csrf_meta_tags %>
+    <script type="text/javascript"> $.mobile.ajaxEnabled = true;
+    </script>
+  </head>
   </head>
   <body>
-    <% if current_user %>
+    <div data-role="page" data-theme="a" id=<%= params[:action]%>
+      data-add-back-btn="true">
+      <% if current_user %>
       <%= link_to "Sign Out",  signout_path %>
       <%= yield %>
-    <% else %>
-      <%= link_to "Sign in with Twitter",  "/auth/twitter" %>
-    <% end %>
-
-
+      <% else %>
+      <%= link_to "Sign in with Twitter",  "/auth/twitter",{:rel => "external"} %>
+      <% end %>
+      <div data-role="footer" data-position="fixed" data-theme="a">
+        <div data-role="navbar">
+          <ul>
+            <li>
+              <%= link_to "Guide", "/service/guide",{"data-icon"=>"grid"} %>
+            </li>
+            <li>
+              <%= link_to "Search", "/service/top",{"data-icon"=>"search"} %>
+            </li>
+            <li>
+              <%= link_to "Random", "/service/item",{"data-icon"=>"plus"} %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

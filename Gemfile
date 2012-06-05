@@ -10,9 +10,12 @@ gem 'sqlite3'
 gem 'json'
 gem 'rake', '0.8.7'
 gem 'devise'
+gem 'kaminari'
 gem 'omniauth'
 gem 'amazon-ecs'
+gem 'mysql2'
 gem 'ruby-debug'
+gem 'nokogiri'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -22,7 +25,10 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
+group :production do
+gem 'pg'
+gem 'therubyracer-heroku'
+end
 # Use unicorn as the web server
 # gem 'unicorn'
 
