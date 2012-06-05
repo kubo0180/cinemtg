@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111003231422) do
+ActiveRecord::Schema.define(:version => 20120605115049) do
 
   create_table "books", :force => true do |t|
     t.string   "asin"
@@ -49,6 +49,19 @@ ActiveRecord::Schema.define(:version => 20111003231422) do
   add_index "entries", ["user_id", "public_flag", "created_at"], :name => "index_entries_on_user_id_and_public_flag_and_created_at"
   add_index "entries", ["user_id", "updated_at"], :name => "index_entries_on_user_id_and_updated_at"
 
+  create_table "items", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.text     "image"
+    t.text     "url"
+    t.string   "itemcategory"
+    t.string   "infocategory"
+    t.string   "program"
+    t.string   "corner"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "provider",    :null => false
     t.string   "uid",         :null => false
@@ -65,5 +78,10 @@ ActiveRecord::Schema.define(:version => 20111003231422) do
 
   add_index "users", ["provider", "uid"], :name => "index_users_on_provider_and_uid"
   add_index "users", ["screen_name"], :name => "index_users_on_screen_name"
+
+  create_table "users_items", :id => false, :force => true do |t|
+    t.integer "user_id"
+    t.integer "item_id"
+  end
 
 end

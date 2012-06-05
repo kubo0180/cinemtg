@@ -1,4 +1,5 @@
 class Item < ActiveRecord::Base
+has_and_belongs_to_many :users
   #default_scope :order => "created_at DESC"
   paginates_per 5
   def self.random_get_one
