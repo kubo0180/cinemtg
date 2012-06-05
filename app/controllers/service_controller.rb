@@ -1,7 +1,13 @@
 class ServiceController < ApplicationController
-    require 'json'
+  require 'json'
   require 'open-uri'
   def item
+    if params[:before_item]
+      @before_item = Item.find(params[:before_item])
+      if current_user
+        @before_item.users << current_user
+      end
+    end
     i = Item.arel_table
     @items_origin = Item.where(i[:infocategory].eq("商品").or(i[:infocategory].eq("映画")).or(i[:infocategory].eq("イートイン"))).where(i[:itemcategory].eq("情報/通信").not)
     if params[:program]
@@ -14,7 +20,7 @@ class ServiceController < ApplicationController
         if params[:created_at]
           @items_origin = @items_origin.where(:created_at => params[:created_at])
         end
-      @item = @items_origin.first
+        @item = @items_origin.first
       else
         @item = @items_origin.order("RANDOM()").limit(1).first
       end
@@ -25,6 +31,11 @@ class ServiceController < ApplicationController
     @count = params[:count].to_i || 0
     @count += 1
     Item.setimage @item
+  end
+  def like
+    if current_user
+    @items = current_user.items
+    end
   end
 
 end

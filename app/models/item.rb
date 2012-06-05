@@ -1,5 +1,6 @@
 class Item < ActiveRecord::Base
-has_and_belongs_to_many :users
+  has_many :item_users
+  has_many :users,  :through => :item_users
   #default_scope :order => "created_at DESC"
   paginates_per 5
   def self.random_get_one
@@ -18,7 +19,7 @@ has_and_belongs_to_many :users
       image_array = results['responseData']['results']
       image = image_array[0] if image_array
       res.image = image['unescapedUrl']
-    #google_image = self.new(:thumbnail => image['tbUrl'], :original => image['unescapedUrl'], :position => position, :name => keyword.titleize)
+      #google_image = self.new(:thumbnail => image['tbUrl'], :original => image['unescapedUrl'], :position => position, :name => keyword.titleize)
     end
 
     #if res.image
@@ -45,7 +46,7 @@ has_and_belongs_to_many :users
       elsif image.include?("blogs.yahoo")
         item.image ="http://jpn-ex.com/wp-content/uploads/2011/09/noImage.jpg"
       else
-      item.image = image
+        item.image = image
       end
 
     else

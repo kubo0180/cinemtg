@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   has_many :entries
   has_many :books
-has_and_belongs_to_many :items
+  has_many :item_users
+has_many :items, :through => :item_users
   def self.create_with_omniauth(auth)
     create! do |user|
       user.provider = auth["provider"]

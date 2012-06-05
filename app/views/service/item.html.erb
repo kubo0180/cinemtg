@@ -7,8 +7,8 @@
     <p class="item_image"><%= image_tag(@item.image ,:width =>"80%") %></p>
     <h2><%= link_to "#{@item.itemcategory}「#{@item.title}」", @item.url, "target" => "_blank" %></h2>
   </div>
-  <%= link_to "like", "#", "data-icon" => "star", "data-role" => "button", "data-inline" => "pop" %>
-  <%= link_to "next", {:controller => "service", :action => "item", :count => @count,:program => params[:program],:program2=>params[:program2],:program3=>params[:program3]}, "data-transition" => "slide", "data-icon" => "arrow-r", "data-role" => "button", "data-inline" => "true" %>
+  <%= link_to "kurukamo", {:controller => "service", :action => "item", :count => @count,:before_item => @item, :program => params[:program],:program2=>params[:program2],:program3=>params[:program3]}, "data-icon" => "star", "data-role" => "button", "data-inline" => "pop" %>
+  <%= link_to "konaikamo", {:controller => "service", :action => "item", :count => @count,:program => params[:program],:program2=>params[:program2],:program3=>params[:program3]}, "data-transition" => "slide", "data-icon" => "arrow-r", "data-role" => "button", "data-inline" => "true" %>
   <br>
   <hr>
   <p>
