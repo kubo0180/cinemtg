@@ -57,16 +57,16 @@ ActiveRecord::Schema.define(:version => 20120605223131) do
   end
 
   create_table "items", :force => true do |t|
-    t.string    "title"
-    t.text      "description"
-    t.text      "image"
-    t.text      "url"
-    t.string    "itemcategory"
-    t.string    "infocategory"
-    t.string    "program"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.string    "corner"
+    t.string   "title"
+    t.text     "description"
+    t.text     "image"
+    t.text     "url"
+    t.string   "itemcategory"
+    t.string   "infocategory"
+    t.string   "program"
+    t.string   "corner"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
@@ -85,5 +85,10 @@ ActiveRecord::Schema.define(:version => 20120605223131) do
 
   add_index "users", ["provider", "uid"], :name => "index_users_on_provider_and_uid"
   add_index "users", ["screen_name"], :name => "index_users_on_screen_name"
+
+  create_table "users_items", :id => false, :force => true do |t|
+    t.integer "user_id"
+    t.integer "item_id"
+  end
 
 end
