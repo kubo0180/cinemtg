@@ -8,31 +8,34 @@
     <script type="text/javascript"> $.mobile.ajaxEnabled = false;
     </script>
   </head>
-  </head>
-  <body>
-    <div data-role="page" data-theme="a" id=<%= params[:action]%>
-      data-add-back-btn="true">
-      <% if current_user %>
+</head>
+<body>
+  <div data-role="page" data-theme="a" id=<%= params[:action]%>
+    data-add-back-btn="true">
+    <% if current_user %>
       <%= link_to "Sign Out",  signout_path %>
       <%= yield %>
-      <% else %>
+    <% else %>
       <%= link_to "Sign in with Twitter",  "/auth/twitter",{:rel => "external"} %>
-      <% end %>
-      <div data-role="footer" data-position="fixed" data-theme="a">
-        <div data-role="navbar">
-          <ul>
-            <li>
-              <%= link_to "Guide", "/service/guide",{"data-icon"=>"grid"} %>
-            </li>
-            <li>
-              <%= link_to "Search", "/service/top",{"data-icon"=>"search"} %>
-            </li>
-            <li>
-              <%= link_to "Random", "/service/item",{"data-icon"=>"plus"} %>
-            </li>
-          </ul>
-        </div>
+    <% end %>
+    <div data-role="footer" data-position="fixed" data-theme="a">
+      <div data-role="navbar">
+        <ul>
+          <li>
+          <%= link_to "match", "/service/match",{"data-icon"=>"home"} %>
+          </li>
+          <li>
+          <%= link_to "like", "/service/like",{"data-icon"=>"star"} %>
+          </li>
+          <li>
+          <%= link_to "talk", "/service/talk",{"data-icon"=>"info"} %>
+          </li>
+          <li>
+          <%= link_to "setting", "/service/talk",{"data-icon"=>"check"} %>
+          </li>
+        </ul>
       </div>
     </div>
-  </body>
+  </div>
+</body>
 </html>

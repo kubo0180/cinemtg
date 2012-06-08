@@ -1,7 +1,7 @@
 class ServiceController < ApplicationController
   require 'json'
   require 'open-uri'
-  def item
+  def like
     if params[:before_item]
       @before_item = Item.find(params[:before_item])
       if current_user
@@ -9,7 +9,7 @@ class ServiceController < ApplicationController
       end
     end
     i = Item.arel_table
-    @items_origin = Item.where(i[:infocategory].eq("商品").or(i[:infocategory].eq("映画")).or(i[:infocategory].eq("イートイン"))).where(i[:itemcategory].eq("情報/通信").not)
+    @items_origin = Item.where(i[:infocategory].eq("映画"));
     if params[:program]
       @items_origin= @items_origin.where(i[:program].matches(params[:program]).or(i[:program].matches(params[:program2])).or(i[:program].matches(params[:program3]))).order("RANDOM()").limit(3)
 
@@ -31,11 +31,6 @@ class ServiceController < ApplicationController
     @count = params[:count].to_i || 0
     @count += 1
     Item.setimage @item
-  end
-  def like
-    if current_user
-    @items = current_user.items
-    end
   end
 
 end
