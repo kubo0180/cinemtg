@@ -34,5 +34,9 @@ class ServiceController < ApplicationController
   end
   def match
   end
+  def talk
+  end
+  def filter
+  end
 
 end

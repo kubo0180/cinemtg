@@ -9,7 +9,7 @@ Simple::Application.routes.draw do
  match "service/match"
 match "service/like"
 match "service/talk"
-match "service/setting"
+match "service/filter"
 
   resources :books do
     resources :entries

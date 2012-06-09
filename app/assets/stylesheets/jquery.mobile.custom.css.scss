@@ -5,9 +5,7 @@ body {
     background-size:100% 59px;
     position:relative;
     height:59px;
-    z-index:1px;
-
-  }
+    z-index:1px;}
   .ui-body-z .ui-header h1{
     text-indent:-9999px;
     background-image:url("./images/cinematch_header_logo.png");
@@ -15,22 +13,76 @@ body {
     height:27px;
     min-height:27px;
     padding:0;
-    margin:13px auto 5px;
-  }
+    margin:13px auto 5px;}
   .ui-body-z .ui-content {
     background-image:url("./images/cinematch_content_bg.jpg");
     -webkit-background-size:100% 59px;
     background-size:100% 59px;
-    background-repeat:repeat-y;
-
-  }
-.ui-body-z .ui-footer {
+    background-repeat:repeat-y;}
+  .ui-body-z .ui-content h2{
+    background-image:url("./images/cinematch_content_h2.jpg");
+    -webkit-background-size:284px 35px;
+    background-size:284px 35px;
+    font-weight:normal;
+    font-size:14px;
+    padding-top:10px;
+    text-align:center;
+    margin:0 auto;
+    width:284px;
+    height:25px;}
+  .ui-content .ui-listview-inset {
+    margin-left:35px;
+    margin-right:35px;}
+  .ui-body-z .ui-footer {
     background-image:url("./images/cinematch_footer_bg.jpg");
     -webkit-background-size:100% 60px;
     background-size:100% 60px;
-    height:60px;
-
-  }
-
-
+    height:60px;}
+  .ui-btn-icon-top .ui-btn-inner{
+    padding-top:10px;}
 }
+
+
+.drop-shadow {
+  position:relative;
+  width:65%;
+  padding-left:0;
+  padding-right:0;
+  margin:10px auto 10px;
+  background:#fff;
+  -webkit-box-shadow:0 1px 4px rgba(0,  0,  0,  0.3),  0 0 60px rgba(0,  0,  0,  0.1) inset;
+  -moz-box-shadow:0 1px 4px rgba(0,  0,  0,  0.3),  0 0 40px rgba(0,  0,  0,  0.1) inset;
+  box-shadow:0 1px 4px rgba(0,  0,  0,  0.3),  0 0 40px rgba(0,  0,  0,  0.1) inset;  }
+
+.drop-shadow:before, .drop-shadow:after {
+  content:"";
+  position:absolute;
+  z-index:-2;
+  bottom:15px;
+  left:10px;
+  width:50%;
+  height:20%; }
+
+.drop-shadow:after {
+  right:10px;
+  left:auto;}
+
+.rou {
+  -moz-border-radius:4px;
+  border-radius:4px;}
+
+.rou:before, .rou:after {
+  max-width:300px;
+  -webkit-box-shadow:0 15px 10px rgba(0,  0,  0,  0.7);
+  -moz-box-shadow:0 15px 10px rgba(0,  0,  0,  0.7);
+  box-shadow:0 15px 10px rgba(0,  0,  0,  0.7);
+  -webkit-transform:rotate(-3deg);
+  -moz-transform:rotate(-3deg);
+  -o-transform:rotate(-3deg);
+  transform:rotate(-3deg);}
+
+.rou:after {
+  -webkit-transform:rotate(3deg);
+  -moz-transform:rotate(3deg);
+  -o-transform:rotate(3deg);
+  transform:rotate(3deg);}
