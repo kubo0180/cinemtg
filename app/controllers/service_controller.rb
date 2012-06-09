@@ -32,5 +32,7 @@ class ServiceController < ApplicationController
     @count += 1
     Item.setimage @item
   end
+  def match
+  end
 
 end

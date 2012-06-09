@@ -1,0 +1,36 @@
+body {
+  .ui-body-z .ui-header {
+    background-image:url("./images/cinematch_header_bg.jpg");
+    -webkit-background-size:100% 59px;
+    background-size:100% 59px;
+    position:relative;
+    height:59px;
+    z-index:1px;
+
+  }
+  .ui-body-z .ui-header h1{
+    text-indent:-9999px;
+    background-image:url("./images/cinematch_header_logo.png");
+    width:121px;
+    height:27px;
+    min-height:27px;
+    padding:0;
+    margin:13px auto 5px;
+  }
+  .ui-body-z .ui-content {
+    background-image:url("./images/cinematch_content_bg.jpg");
+    -webkit-background-size:100% 59px;
+    background-size:100% 59px;
+    background-repeat:repeat-y;
+
+  }
+.ui-body-z .ui-footer {
+    background-image:url("./images/cinematch_footer_bg.jpg");
+    -webkit-background-size:100% 60px;
+    background-size:100% 60px;
+    height:60px;
+
+  }
+
+
+}

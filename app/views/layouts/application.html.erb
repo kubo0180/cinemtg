@@ -10,15 +10,19 @@
   </head>
 </head>
 <body>
-  <div data-role="page" data-theme="a" id=<%= params[:action]%>
-    data-add-back-btn="true">
+  <div data-role="page" data-theme="z" id=<%= params[:action]%> data-add-back-btn="true">
+    <div data-role="header" data-theme="z" data-position="">
+      <h1>cinematch</h1>
+    </div>
+<div data-role="content" >
+    <%= yield %>
     <% if current_user %>
       <%= link_to "Sign Out",  signout_path %>
-      <%= yield %>
     <% else %>
       <%= link_to "Sign in with Twitter",  "/auth/twitter",{:rel => "external"} %>
     <% end %>
-    <div data-role="footer" data-position="fixed" data-theme="a">
+</div>
+    <div data-role="footer" data-position="fixed" data-theme="z">
       <div data-role="navbar">
         <ul>
           <li>
