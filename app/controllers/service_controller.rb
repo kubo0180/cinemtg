@@ -35,8 +35,27 @@ class ServiceController < ApplicationController
   def match
   end
   def talk
+    render :layout => "mock"
   end
   def filter
+  end
+  def welcome
+    render :layout => "mock"
+  end
+  def info
+    render :layout => "mock"
+  end
+  def info2
+    render :layout => "mock"
+  end
+def info3
+    render :layout => "mock"
+  end
+def timepass
+    render :layout => "mock"
+  end
+def timepass2
+    render :layout => "mock"
   end
 
 end

@@ -10,38 +10,38 @@
   </head>
 </head>
 <body>
-  <div data-role="page" data-theme="z" id=<%= params[:action]%> data-add-back-btn="true">
-    <div data-role="header" data-theme="z" data-position="">
-      <h1>cinematch</h1>
-      <div class="setting">
-      <% if current_user %>
-        <%= link_to (image_tag("images/setting.png"),  signout_path) %>
-      <% else %>
-        <%= link_to (image_tag("images/setting.png"),  "/auth/twitter",{:rel => "external"}) %>
-      <% end %>
-    </div>
-    </div>
-    <div data-role="content" >
-      <%= yield %>
-    </div>
-    <div data-role="footer" data-position="fixed" data-theme="z">
-      <div data-role="navbar">
-        <ul>
-          <li>
-          <%= link_to (image_tag("images/home.png" ), "/service/match") %>
-          </li>
-          <li>
-          <%= link_to (image_tag("images/star.png" ), "/service/like") %>
-          </li>
-          <li>
-          <%= link_to (image_tag("images/talk.png" ), "/service/talk") %>
-          </li>
-          <li>
-          <%= link_to (image_tag("images/filter.png" ), "/service/filter") %>
-          </li>
-        </ul>
+    <div data-role="page" data-theme="z" id=<%= params[:action]%> data-add-back-btn="true">
+      <div data-role="header" data-theme="z" data-position="">
+        <h1>cinematch</h1>
+        <div class="setting">
+          <% if current_user %>
+            <%= link_to (image_tag("images/setting.png"),  signout_path) %>
+          <% else %>
+            <%= link_to (image_tag("images/setting.png"),  "/auth/twitter",{:rel => "external"}) %>
+          <% end %>
+        </div>
+      </div>
+      <div data-role="content" >
+        <%= yield %>
+      </div>
+      <div data-role="footer" data-position="fixed" data-theme="z">
+        <div data-role="navbar">
+          <ul>
+            <li>
+            <%= link_to (image_tag("images/home.png" ), "/service/match") %>
+            </li>
+            <li>
+            <%= link_to (image_tag("images/star.png" ), "/service/like") %>
+            </li>
+            <li>
+            <%= link_to (image_tag("images/talk.png" ), "/service/talk") %>
+            </li>
+            <li>
+            <%= link_to (image_tag("images/filter.png" ), "/service/filter") %>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
 </body>
 </html>

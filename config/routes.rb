@@ -10,7 +10,12 @@ Simple::Application.routes.draw do
 match "service/like"
 match "service/talk"
 match "service/filter"
-
+match "service/welcome"
+match "service/timepass"
+match "service/info"
+match "service/info2"
+match "service/timepass2"
+match "service/info3"
   resources :books do
     resources :entries
   end
@@ -78,7 +83,7 @@ match "service/filter"
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'entries#index'
+  root :to => 'service#welcome'
 
   # See how all your routes lay out with "rake routes"
 
