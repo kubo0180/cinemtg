@@ -1,5 +1,9 @@
 body {
   margin:0px;
+background-image:url("./images/cinematch_content_bg.jpg");
+  -webkit-background-size:100% 59px;
+  background-size:100% 59px;
+  background-repeat:repeat-y;
   #matchoffer {
     margin-top:35px;
   }
@@ -36,10 +40,7 @@ body {
   padding:0;
   margin:13px auto 5px;}
 .ui-body-z .ui-content {
-  background-image:url("./images/cinematch_content_bg.jpg");
-  -webkit-background-size:100% 59px;
-  background-size:100% 59px;
-  background-repeat:repeat-y;}
+}
 .ui-body-z .ui-content h2{
   background-image:url("./images/cinematch_content_h2.jpg");
   -webkit-background-size:100% 35px;
