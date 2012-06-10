@@ -5,12 +5,12 @@
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application" %><meta name="apple-mobile-web-app-capable" content="yes" />
     <%= csrf_meta_tags %>
-    <script type="text/javascript"> $.mobile.ajaxEnabled = false;
+    <script type="text/javascript"> $.mobile.ajaxEnabled = true;
     </script>
   </head>
 </head>
 <body>
-    <div data-role="page" data-theme="z" id=<%= params[:action]%> data-add-back-btn="true">
+    <div data-role="page" data-theme="z" id=<%= params[:action]%> data-add-back-btn="false">
       <div data-role="header" data-theme="z" data-position="">
         <h1>cinematch</h1>
         <div class="setting">
