@@ -13,15 +13,17 @@
   <div data-role="page" data-theme="z" id=<%= params[:action]%> data-add-back-btn="true">
     <div data-role="header" data-theme="z" data-position="">
       <h1>cinematch</h1>
+      <div class="setting">
+      <% if current_user %>
+        <%= link_to (image_tag("images/setting.png"),  signout_path) %>
+      <% else %>
+        <%= link_to (image_tag("images/setting.png"),  "/auth/twitter",{:rel => "external"}) %>
+      <% end %>
     </div>
-<div data-role="content" >
-    <%= yield %>
-    <% if current_user %>
-      <%= link_to "Sign Out",  signout_path %>
-    <% else %>
-      <%= link_to "Sign in with Twitter",  "/auth/twitter",{:rel => "external"} %>
-    <% end %>
-</div>
+    </div>
+    <div data-role="content" >
+      <%= yield %>
+    </div>
     <div data-role="footer" data-position="fixed" data-theme="z">
       <div data-role="navbar">
         <ul>
@@ -29,13 +31,13 @@
           <%= link_to (image_tag("images/home.png" ), "/service/match") %>
           </li>
           <li>
-<%= link_to (image_tag("images/star.png" ), "/service/like") %>
+          <%= link_to (image_tag("images/star.png" ), "/service/like") %>
           </li>
           <li>
-<%= link_to (image_tag("images/talk.png" ), "/service/talk") %>
+          <%= link_to (image_tag("images/talk.png" ), "/service/talk") %>
           </li>
           <li>
-<%= link_to (image_tag("images/filter.png" ), "/service/filter") %>
+          <%= link_to (image_tag("images/filter.png" ), "/service/filter") %>
           </li>
         </ul>
       </div>

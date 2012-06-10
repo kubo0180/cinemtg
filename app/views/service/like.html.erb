@@ -2,4 +2,3 @@
 <p class="item_image"><%= image_tag(@item.image ,:width =>"80%") %></p>
   <%= link_to "見たい", {:controller => "service", :action => "like", :count => @count,:before_item => @item, :program => params[:program],:program2=>params[:program2],:program3=>params[:program3]}, "data-icon" => "star", "data-role" => "button","data-theme" => "e",  "data-inline" => "pop" %>
   <%= link_to "みたくない", {:controller => "service", :action => "like", :count => @count,:program => params[:program],:program2=>params[:program2],:program3=>params[:program3]}, "data-transition" => "slide", "data-icon" => "arrow-r", "data-role" => "button","data-theme" => "b",  "data-inline" => "true" %>
-  </br>
