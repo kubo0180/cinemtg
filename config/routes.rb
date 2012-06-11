@@ -9,6 +9,7 @@ Simple::Application.routes.draw do
  match "service/match"
 match "service/like"
 match "service/talk"
+match "service/talk2"
 match "service/filter"
 match "service/welcome"
 match "service/timepass"

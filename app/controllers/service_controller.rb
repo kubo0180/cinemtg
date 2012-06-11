@@ -44,6 +44,10 @@ end
   def talk
     render :layout => "mock"
   end
+def talk2
+    render :layout => "mock"
+  end
+
   def filter
 render :layout => "mock"
   end
