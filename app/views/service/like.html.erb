@@ -1,5 +1,16 @@
-<h2>「<%= @item.title %>」を見に行く？</h2>
-<p class="item_image"><%= image_tag(@item.image ,:width =>"80%") %></p>
-  <% link_to "見たい", {:controller => "service", :action => "like", :count => @count,:before_item => @item, :program => params[:program],:program2=>params[:program2],:program3=>params[:program3]}, "data-icon" => "star", "data-role" => "button","data-theme" => "e",  "data-inline" => "pop" %>
-  <%= link_to "見たい", {:controller => "service", :action => "timepass"}, "data-icon" => "star", "data-role" => "button","data-theme" => "e",  "data-inline" => "pop" %>
-  <%= link_to "みたくない", {:controller => "service", :action => "like", :count => @count,:program => params[:program],:program2=>params[:program2],:program3=>params[:program3]}, "data-transition" => "slide", "data-icon" => "arrow-r", "data-role" => "button","data-theme" => "b",  "data-inline" => "true" %>
+<% if params[:count].nil? %>
+  <h2>「ダーク・シャドウ」を見に行く？</h2>
+  <p class="item_image"><%= image_tag("images/mock_sample0.jpg" ,:width =>"80%") %></p>
+<% elsif params[:count] == "1" %>
+  <h2>「メイン・イン・ブラック３」を見に行く？</h2>
+  <p class="item_image"><%= image_tag("images/mock_sample1.jpg" ,:width =>"80%") %></p>
+<% elsif params[:count] == "2" %>
+  <h2>「テルマエ・ロマエ」を見に行く？</h2>
+  <p class="item_image"><%= image_tag("images/mock_sample2.jpg" ,:width =>"80%") %></p>
+<% else %>
+  <h2>「<%= @item.title %>」を見に行く？</h2>
+  <p class="item_image"><%= image_tag(@item.image ,:width =>"80%") %></p>
+<% end %>
+<% link_to "見たい", {:controller => "service", :action => "like", :count => @count,:before_item => @item, :program => params[:program],:program2=>params[:program2],:program3=>params[:program3]}, "data-icon" => "star", "data-role" => "button","data-theme" => "e",  "data-inline" => "pop" %>
+<%= link_to "見たい", {:controller => "service", :action => "timepass"}, "data-icon" => "star", "data-role" => "button","data-theme" => "e",  "data-inline" => "pop" %>
+<%= link_to "みたくない", {:controller => "service", :action => "like", :count => @count,:program => params[:program],:program2=>params[:program2],:program3=>params[:program3]}, "data-transition" => "slide", "data-icon" => "arrow-r", "data-role" => "button","data-theme" => "b",  "data-inline" => "true" %>

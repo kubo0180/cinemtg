@@ -34,10 +34,18 @@ class ServiceController < ApplicationController
   end
   def match
   end
+def home
+render :layout => "mock"
+end
+def home2
+render :layout => "mock"
+end
+
   def talk
     render :layout => "mock"
   end
   def filter
+render :layout => "mock"
   end
   def welcome
     render :layout => "mock"

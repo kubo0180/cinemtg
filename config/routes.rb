@@ -16,6 +16,8 @@ match "service/info"
 match "service/info2"
 match "service/timepass2"
 match "service/info3"
+match "service/home"
+match "service/home2"
   resources :books do
     resources :entries
   end
